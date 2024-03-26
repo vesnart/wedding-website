@@ -1,0 +1,5 @@
+Migrate Static files
+Pip freeze requirements
+Project urls change robots.txt to production urls
+Change Debug to False
+Change allowed hosts if needed

@@ -1,0 +1,169 @@
+
+
+    {% extends "base.html" %}
+
+    {% load widget_tweaks %}
+
+    {% load static %}
+
+    <!-- More Meta Description-->
+    {% block meta %}
+    <META NAME="description" content="Contact information of Live event and Wedding painting by Vesna Longton." />
+
+    <META NAME="keywords" content="wedding painting,event painting, event artist,wedding painter, event painter,Vesna longton,contacts" />
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW, ARCHIVE" />
+
+    {% endblock meta %}
+
+    {% block extracss %}
+
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+
+{% endblock extracss %}
+
+    <title>Contacts - event painter Vesna Longton</title>
+
+    <!--Main Content-->
+
+    {% block content %}
+
+
+        <section class="space">
+            <div class="contacts row ">
+
+                <!--Form Column-->
+                <div class="cont-form col-lg-5 mx-auto">
+                    <div class="card shadow bg-light">
+                        <div class="card-body form-body">
+                            <h3 class="card-title text-center form-title  mb-2">Wedding Inquiry</h3>
+                            <hr>
+                            <!--Contact Form-->
+
+                            <form method="post" class="contact-form mt-3">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                            {{ form.first_name|add_class:"form-control" }}
+                                            {% for error in form.first_name.errors %}
+                                                <div class="alert alert-danger">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                            {{ form.last_name|add_class:"form-control" }}
+                                            {% for error in form.last_name.errors %}
+                                                <div class="alert alert-danger">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                                        {{ form.email|add_class:"form-control" }}
+                                        {% for error in form.email.errors %}
+                                            <div class="alert alert-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="{{ form.wedding_venue.id_for_label }}">{{ form.wedding_venue.label }}</label>
+                                            {{ form.wedding_venue|add_class:"form-control" }}
+                                            {% for error in form.wedding_venue.errors %}
+                                                <div class="alert alert-danger">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="{{ form.phone_number.id_for_label }}">{{ form.phone_number.label }}</label>
+                                            {{ form.phone_number|add_class:"form-control" }}
+                                            {% for error in form.phone_number.errors %}
+                                                <div class="alert alert-danger">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                                        {{ form.message|add_class:"form-control" }}
+                                        {% for error in form.message.errors %}
+                                            <div class="alert alert-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <button type="submit" class="btn btn-secondary">Send</button>
+                                </form>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                    <div class="{{ message.tags }}">{{ message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <!--End of Contact Form-->
+
+
+
+                        </div>
+                    </div>
+
+
+                <!--Map Column-->
+                <div class="col-lg-6 mx-auto">
+
+                    <h2 class="text-center mt-2">Get In Touch With Us</h2>
+                    <hr>
+
+
+                    <!-- Get In touch-->
+                    <div class="in-touch row ">
+                        <div class="me location col-md-4  text-center pt-1 mt-1">
+                            <h6>Location</h6>
+                            <p>
+                                25 Hanisch Rd, Attleboro,
+                                <br>
+                                MA 02703, USA
+                            </p>
+                        </div>
+
+                        <div class="me email col-md-3  text-center p-1 mt-1">
+                            <h6>Email Address</h6>
+                            <p><a href="mailto:vesna_longton@yahoo.com">vesna_longton@yahoo.com</a></p>
+
+                        </div>
+
+                        <div class="me phone col-md-3  text-center pt-1 mt-1">
+                            <h6>Phone</h6>
+                            <p><a href="tel:+16176787880">617-678-7880</a></p>
+
+                        </div>
+                    </div>
+
+                    <!-- Map-->
+                    <div class="map">
+                        <iframe width="800rem" height="500rem" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                            padding="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=25+Hanisch+Rd,+Attleboro,+MA&amp;aq=0&amp;oq=25&amp;sll=42.036922,-71.683501&amp;sspn=2.011276,4.454956&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=25+Hanisch+Rd,+Attleboro,+Massachusetts+02703&amp;ll=41.933459,-71.311513&amp;spn=0.00787,0.017402&amp;z=14&amp;output=embed">
+                        </iframe>
+
+                        <br>
+
+                        <small>View
+                            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=25+Hanisch+Rd,+Attleboro,+MA&amp;aq=0&amp;oq=25&amp;sll=42.036922,-71.683501&amp;sspn=2.011276,4.454956&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=25+Hanisch+Rd,+Attleboro,+Massachusetts+02703&amp;ll=41.933459,-71.311513&amp;spn=0.00787,0.017402&amp;z=14" target="_blank" style="color:#0d0d0d;text-align:left">Untitled
+
+                            </a> in a larger map
+
+                        </small>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+    </section>
+
+            {% endblock content %}
