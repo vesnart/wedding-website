@@ -28,13 +28,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'apptestermind@gmail.com'
-EMAIL_HOST_PASSWORD = 'xjocintwharaawwi'
+EMAIL_HOST_USER = 'vesna_longton@yahoo.com'
+EMAIL_HOST_PASSWORD = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'liveevent-weddingpainter.com', 'liveevent-weddingpainting.com']
 
 
 # Application definition
