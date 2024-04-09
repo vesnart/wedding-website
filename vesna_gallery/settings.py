@@ -23,18 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-h(1oho2_i5z!t1ohukzl$(8$wr62v+-0aaitxk&tg+98&_$&&b"
 
-# Messages
+# Email settings for Yahoo Mail
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.mail.yahoo.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'vesna_longton@yahoo.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'email_address@yahoo.com'
+EMAIL_HOST_PASSWORD = 'email_password' # App password
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'liveevent-weddingpainter.com', 'liveevent-weddingpainting.com']
+ALLOWED_HOSTS = ['liveevent-weddingpainter.com', 'liveevent-weddingpainting.com']
 
 
 # Application definition
