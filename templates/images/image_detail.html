@@ -7,6 +7,8 @@
 
     {% block extracss %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
     {% endblock extracss %}
 
     <!-- Title -->
@@ -16,122 +18,6 @@
 
 {% block content %}
 
-<style>
-    /* Carousel Section */
-
-    .carousel {
-        position: relative;
-        overflow: hidden;
-        max-width: 100%;
-        /* width: 40rem; */
-        max-height: 50rem;
-        margin: auto;
-    }
-
-
-    .carousel__item {
-        display: flex;
-        width: auto;
-        height: 100%;
-        overflow: hidden;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-
-    .carousel__item img {
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-        display: block;
-    }
-
-    .carousel__item .medium {
-        width: 92%;
-        height: auto;
-        display: block;
-    }
-
-    .carousel__item .tall {
-        width: auto;
-        height: 40rem;
-        display: block;
-    }
-    .carousel__item .long{
-        width: 95%;
-    }
-
-    .carousel__button--prev,
-    .carousel__button--next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color:#C0C0C0 ;
-        color: white;
-        border: none;
-        border-radius: .5rem;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 100;
-    }
-
-    .carousel__button--prev {
-        left: 10px;
-    }
-
-    .carousel__button--next {
-        right: 10px;
-    }
-
-    @media (max-width: 768px) {
-
-        .space{
-            padding: 0;
-            margin: 0;
-        }
-
-        .carousel{
-            width: 100%;
-            height: 100%;
-        }
-        /* Styles for mobile */
-        .carousel__item .medium {
-            width: 80%;
-            height: auto;
-            display: block;
-        }
-
-        .carousel__item .tall {
-            width: auto;
-            height: 40rem;
-            display: block;
-        }
-        .carousel__item .long{
-            width: 95%;
-        }
-
-    }
-
-    main {
-        min-height: calc(100vh - 50px);
-    }
-
-    .image-details h2{
-        color: #727272;
-    }
-
-    .back-link {
-        border:gray solid 1px;
-        padding: .3rem;
-        margin-top: 2rem;
-        height: auto;
-        width: max-content;
-        border-radius: 0.5rem;
-    }
-
-    /* End of Carousel Section */
-
-</style>
 <main>
     <section class="image-details space">
 
