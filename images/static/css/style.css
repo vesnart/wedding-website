@@ -74,6 +74,122 @@
     }
 }
 
+/* Image Details Page */
+    /* Carousel Section */
+
+    .carousel {
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+        /* width: 40rem; */
+        max-height: 50rem;
+        margin: auto;
+    }
+
+
+    .carousel__item {
+        display: flex;
+        width: auto;
+        height: 100%;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .carousel__item img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .carousel__item .medium {
+        width: 92%;
+        height: auto;
+        display: block;
+    }
+
+    .carousel__item .tall {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .carousel__item .long{
+        width: 95%;
+    }
+
+    .carousel__button--prev,
+    .carousel__button--next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color:#C0C0C0 ;
+        color: white;
+        border: none;
+        border-radius: .5rem;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 100;
+    }
+
+    .carousel__button--prev {
+        left: 10px;
+    }
+
+    .carousel__button--next {
+        right: 10px;
+    }
+
+    @media (max-width: 768px) {
+
+        .space{
+            padding: 0;
+            margin: 0;
+        }
+
+        .carousel{
+            width: 100%;
+            height: auto;
+        }
+        /* Styles for mobile */
+        .carousel__item .medium {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .carousel__item .tall {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .carousel__item .long{
+            width: 95%;
+        }
+
+    }
+
+    main {
+        min-height: calc(100vh - 50px);
+    }
+
+    .image-details h2{
+        color: #727272;
+    }
+
+    .back-link {
+        border:gray solid 1px;
+        padding: .3rem;
+        margin-top: 2rem;
+        height: auto;
+        width: max-content;
+        border-radius: 0.5rem;
+    }
+
+    /* End of Carousel Section */
+
+
 /* Prices Page */
 .price-list {}
 
@@ -93,11 +209,11 @@
 
     }
 
-    main {
+    /* main {
         min-height: 85vh;
         flex-grow: 1;
         max-width: 100%;
-    }
+    } */
 
     .other-sizes, .details p{
         margin: 0 auto;
