@@ -46,9 +46,9 @@
             <!-- Image Details -->
             <div class="text-details me-5 col-md-4 ">
 
-                <h2 class="fs-5 my-5"> {{ image.image_description}} </h2>
+                <h2 class="fs-5 my-5"> {{ image.title}} </h2>
 
-                <p class="text-start ms-1 pe-3"> &Lorem ipsum dolxplicabo minima perspiciatis eaque ipsum quo error doloribus assumenda natus deleniti quos quia quas dicta? Reiciendis, provident?</p>
+                <p class="text-start ms-1 pe-3"> {{ image.image_description}}</p>
 
                 <div class="back-link">
                     <a class=" text-secondary text-gray text-decoration-none ms-1 mt-3 pt-3" href="{% url "gallery" %}"> BACK </a>
