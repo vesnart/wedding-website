@@ -22,48 +22,77 @@ def gallery(request):
 
 # Improvement of previous Image Detail. Loops Across images and categories
 
+# def image_detail(request, pk):
+#     category_order = ['medium', 'long', 'tall']
+#     image = get_object_or_404(Image, pk=pk)
+#     nav_mode = request.GET.get('nav', 'category')  # Default to 'category' navigation
+
+#     if nav_mode == 'category':
+#         # Current category images
+#         images_in_category = Image.objects.filter(category=image.category).order_by('id')
+#         all_images = {category: Image.objects.filter(category=category).order_by('id') for category in category_order}
+#     else:  # nav_mode == 'all'
+#         all_images_ordered = []
+#         for category in category_order:
+#             all_images_ordered.extend(Image.objects.filter(category=category).order_by('id'))
+#         all_images = {'all': all_images_ordered}
+
+#     # Finding next and previous images
+#     def find_next_prev(images_dict):
+#         for key, images in images_dict.items():
+#             image_ids = list(images.values_list('id', flat=True))
+#             if image.id in image_ids:
+#                 current_idx = image_ids.index(image.id)
+#                 num_images = len(image_ids)
+#                 prev_idx = (current_idx - 1) % num_images
+#                 next_idx = (current_idx + 1) % num_images
+#                 prev_image = images.get(id=image_ids[prev_idx])
+#                 next_image = images.get(id=image_ids[next_idx])
+#                 return prev_image, next_image
+#         return None, None
+
+#     prev_image, next_image = find_next_prev(all_images if nav_mode == 'all' else {image.category: images_in_category})
+
+#     # Navigation across categories for 'category' navigation mode
+#     if nav_mode == 'category' and (prev_image is None or next_image is None):
+#         current_category_idx = category_order.index(image.category)
+#         if prev_image is None:  # At the first image of the category
+#             # Go to the last image of the previous category
+#             previous_category = category_order[(current_category_idx - 1) % len(category_order)]
+#             prev_image = Image.objects.filter(category=previous_category).order_by('id').last()
+#         if next_image is None:  # At the last image of the category
+#             # Go to the first image of the next category
+#             next_category = category_order[(current_category_idx + 1) % len(category_order)]
+#             next_image = Image.objects.filter(category=next_category).order_by('id').first()
+
+#     context = {
+#         'image': image,
+#         'prev_image_id': prev_image.id if prev_image else None,
+#         'next_image_id': next_image.id if next_image else None,
+#         'nav_mode': nav_mode
+#     }
+#     return render(request, 'images/image_detail.html', context)
+
+
+# All Categories nav
 def image_detail(request, pk):
     category_order = ['medium', 'long', 'tall']
     image = get_object_or_404(Image, pk=pk)
-    nav_mode = request.GET.get('nav', 'category')  # Default to 'category' navigation
+    nav_mode = request.GET.get('nav', 'all')  # Default to 'all' navigation for unified list
 
-    if nav_mode == 'category':
-        # Current category images
-        images_in_category = Image.objects.filter(category=image.category).order_by('id')
-        all_images = {category: Image.objects.filter(category=category).order_by('id') for category in category_order}
-    else:  # nav_mode == 'all'
-        all_images_ordered = []
-        for category in category_order:
-            all_images_ordered.extend(Image.objects.filter(category=category).order_by('id'))
-        all_images = {'all': all_images_ordered}
+    # Collect all images in a single ordered list irrespective of category
+    all_images_ordered = []
+    for category in category_order:
+        all_images_ordered.extend(Image.objects.filter(category=category).order_by('id'))
 
-    # Finding next and previous images
-    def find_next_prev(images_dict):
-        for key, images in images_dict.items():
-            image_ids = list(images.values_list('id', flat=True))
-            if image.id in image_ids:
-                current_idx = image_ids.index(image.id)
-                num_images = len(image_ids)
-                prev_idx = (current_idx - 1) % num_images
-                next_idx = (current_idx + 1) % num_images
-                prev_image = images.get(id=image_ids[prev_idx])
-                next_image = images.get(id=image_ids[next_idx])
-                return prev_image, next_image
-        return None, None
-
-    prev_image, next_image = find_next_prev(all_images if nav_mode == 'all' else {image.category: images_in_category})
-
-    # Navigation across categories for 'category' navigation mode
-    if nav_mode == 'category' and (prev_image is None or next_image is None):
-        current_category_idx = category_order.index(image.category)
-        if prev_image is None:  # At the first image of the category
-            # Go to the last image of the previous category
-            previous_category = category_order[(current_category_idx - 1) % len(category_order)]
-            prev_image = Image.objects.filter(category=previous_category).order_by('id').last()
-        if next_image is None:  # At the last image of the category
-            # Go to the first image of the next category
-            next_category = category_order[(current_category_idx + 1) % len(category_order)]
-            next_image = Image.objects.filter(category=next_category).order_by('id').first()
+    # Finding next and previous images in the unified list
+    image_ids = [img.id for img in all_images_ordered]
+    current_idx = image_ids.index(image.id)
+    num_images = len(image_ids)
+    prev_idx = (current_idx - 1) % num_images
+    next_idx = (current_idx + 1) % num_images
+    prev_image = all_images_ordered[prev_idx]
+    next_image = all_images_ordered[next_idx]
 
     context = {
         'image': image,
@@ -72,6 +101,7 @@ def image_detail(request, pk):
         'nav_mode': nav_mode
     }
     return render(request, 'images/image_detail.html', context)
+
 
 
 # Contact View

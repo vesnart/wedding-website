@@ -1,49 +1,51 @@
 /* Header */
 .intro {
-        display: flex;
-        text-align: center;
-        padding: 0.5rem;
-        color: white;
-    }
+    display: flex;
+    text-align: center;
+    padding: 0.5rem;
+    color: white;
+}
 
-    .intro .heading, .address {
-        background-color: #727272;
-        font-family: roboto, sans-serif;
-        font-weight: 700;
-        padding: 2rem  1rem .1rem 1rem;
-        height: 100%;
-        align-items: center;
-    }
+.intro .heading,
+.address {
+    background-color: #727272;
+    font-family: roboto, sans-serif;
+    font-weight: 700;
+    padding: 2rem 1rem .1rem 1rem;
+    height: 100%;
+    align-items: center;
+}
 
-    .address a {
-        color: white;
-        text-decoration: none;
-    }
+.address a {
+    color: white;
+    text-decoration: none;
+}
 
-    .intro h1, .intro p{
-    }
+.intro h1,
+.intro p {}
 
-    @media (min-width: 768px) {
-        .h-container {
-            border-right: 2px solid #fff;
-        }
+@media (min-width: 768px) {
+    .h-container {
+        border-right: 2px solid #fff;
     }
+}
 
 
 /* Navbar */
-.navbar-nav .nav-link{
-    margin:0 1rem ;
+.navbar-nav .nav-link {
+    margin: 0 auto;
     font-size: 18px;
 
 
-    }
-.navbar-nav{
+}
+
+.navbar-nav {
     justify-content: center;
     text-wrap: nowrap;
     line-height: 10px;
     margin-left: 10rem;
 
-    }
+}
 
 /* Gallery Page */
 .gallery-container {
@@ -52,16 +54,19 @@
     gap: 10px;
     justify-content: center;
 }
+
 .image-item {
     flex-basis: calc(25% - 10px);
     margin-bottom: 10px;
 }
+
 .image-item img {
     width: 100%;
     height: 100%;
     border: white solid 3px;
     border-radius: 4px;
 }
+
 @media (max-width: 768px) {
     .image-item {
         flex-basis: calc(100% - 10px);
@@ -75,37 +80,88 @@
 }
 
 /* Image Details Page */
-    /* Carousel Section */
+/* Carousel Section */
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    /* width: 40rem; */
+    max-height: 50rem;
+    margin: auto;
+}
+
+
+.carousel__item {
+    display: flex;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.carousel__item img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel__item .medium {
+    width: 92%;
+    height: auto;
+    display: block;
+}
+
+.carousel__item .tall {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel__item .long {
+    width: 95%;
+}
+
+.carousel__button--prev,
+.carousel__button--next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #C0C0C0;
+    color: white;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+.carousel__button--prev {
+    left: 10px;
+}
+
+.carousel__button--next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .space {
+        padding: 0;
+        margin: 0;
+    }
 
     .carousel {
-        position: relative;
-        overflow: hidden;
-        max-width: 100%;
-        /* width: 40rem; */
-        max-height: 50rem;
-        margin: auto;
-    }
-
-
-    .carousel__item {
-        display: flex;
-        width: auto;
-        height: 100%;
-        overflow: hidden;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-
-    .carousel__item img {
         width: 100%;
-        max-width: 100%;
         height: auto;
-        display: block;
     }
 
+    /* Styles for mobile */
     .carousel__item .medium {
-        width: 92%;
+        width: 100%;
         height: auto;
         display: block;
     }
@@ -115,79 +171,31 @@
         height: auto;
         display: block;
     }
-    .carousel__item .long{
+
+    .carousel__item .long {
         width: 95%;
     }
 
-    .carousel__button--prev,
-    .carousel__button--next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color:#C0C0C0 ;
-        color: white;
-        border: none;
-        border-radius: .5rem;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 100;
-    }
+}
 
-    .carousel__button--prev {
-        left: 10px;
-    }
+main {
+    min-height: calc(100vh - 50px);
+}
 
-    .carousel__button--next {
-        right: 10px;
-    }
+.image-details h2 {
+    color: #727272;
+}
 
-    @media (max-width: 768px) {
+.back-link {
+    border: gray solid 1px;
+    padding: .3rem;
+    margin-top: 2rem;
+    height: auto;
+    width: max-content;
+    border-radius: 0.5rem;
+}
 
-        .space{
-            padding: 0;
-            margin: 0;
-        }
-
-        .carousel{
-            width: 100%;
-            height: auto;
-        }
-        /* Styles for mobile */
-        .carousel__item .medium {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .carousel__item .tall {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .carousel__item .long{
-            width: 95%;
-        }
-
-    }
-
-    main {
-        min-height: calc(100vh - 50px);
-    }
-
-    .image-details h2{
-        color: #727272;
-    }
-
-    .back-link {
-        border:gray solid 1px;
-        padding: .3rem;
-        margin-top: 2rem;
-        height: auto;
-        width: max-content;
-        border-radius: 0.5rem;
-    }
-
-    /* End of Carousel Section */
+/* End of Carousel Section */
 
 
 /* Prices Page */
@@ -195,47 +203,48 @@
 
 
 
-    .prices h2 {
-        color: #727272;
-    }
+.prices h2 {
+    color: #727272;
+}
 
-    h3 {
-        font-size: medium;
-    }
+h3 {
+    font-size: medium;
+}
 
-    .price-item {
-        /* background-color: #00; */
-        border: none;
+.price-item {
+    /* background-color: #00; */
+    border: none;
 
-    }
+}
 
-    /* main {
+/* main {
         min-height: 85vh;
         flex-grow: 1;
         max-width: 100%;
     } */
 
-    .other-sizes, .details p{
-        margin: 0 auto;
-    }
+.other-sizes,
+.details p {
+    margin: 0 auto;
+}
 
-    @media (max-width: 768px) {
-        .prices {
-            margin: 2rem 30rem;
-        }
+@media (max-width: 768px) {
+    .prices {
+        margin: 2rem 30rem;
     }
+}
 
-    @media (max-width: 1024px) {
-        .image-item {
-            flex-basis: calc(100% - 10px);
-        }
+@media (max-width: 1024px) {
+    .image-item {
+        flex-basis: calc(100% - 10px);
     }
+}
 
-    .discount {}
+.discount {}
 
-    .discount img {
-        height: 100px;
-    }
+.discount img {
+    height: 100px;
+}
 
 /*  */
 
@@ -255,56 +264,62 @@
 
 /* Contact Page */
 
-    /*Contacts-in touch*/
-.contacts h2{
+/*Contacts-in touch*/
+.contacts h2 {
     font-size: larger;
 }
-.contacts a{
+
+.contacts a {
     color: black;
     text-decoration: none;
 }
-.cont-form{
-    margin-top:2rem;
-}
-.in-touch{
-    display: flex;
-    justify-content:space-around;
-    margin-bottom:2rem;
-    font-size:1rem;
+
+.cont-form {
+    margin-top: 2rem;
 }
 
-.me{
-    max-width:100%;
+.in-touch {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.me {
+    max-width: 100%;
 
 }
 
 /* Map*/
 
-.map{
+.map {
     max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.map iframe{
+.map iframe {
     max-width: 100%;
 }
 
 /* Contact form*/
 
-.form-body h3{
+.form-body h3 {
     font-weight: normal;
 }
+
 .contact-form {
     max-width: 100%;
     margin: auto;
 }
+
 .contact-form .form-group {
     margin-bottom: 1.5rem;
     width: 30rem;
     max-width: 100%;
 }
+
 .contact-form .btn-primary {
     background-color: #004085;
     border: none;
@@ -314,9 +329,11 @@
     max-width: 100%;
     width: 30rem;
 }
+
 .contact-form .form-control {
     border-radius: 0.25rem;
 }
+
 textarea.form-control {
     max-width: 100%;
     height: 5rem;
